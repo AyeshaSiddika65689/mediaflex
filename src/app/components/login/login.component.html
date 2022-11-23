@@ -1,0 +1,14 @@
+<div class="login-main">
+    <form class="col-md-4" #loginupDataDetails="ngForm">
+      <h2>LOGIN</h2>
+      <div class="mb-3">
+        <input type="email" name="email" #email="ngModel" [(ngModel)]="loginInfo.email" [class.is-invalid]="email.invalid && email.touched" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" placeholder="Email" required="required" />
+        <small [class.d-none]="email.valid || email.untouched">*Enter valid Data</small>
+    </div>
+      <div class="mb-3">
+        <input type="password" name="passowrd" [(ngModel)]="loginInfo.password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched"  pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" class="form-control" placeholder="Password" required="required" />
+        <small [class.d-none]="password.valid || password.untouched">*Use strong  password </small>
+      </div>
+      <button type="submit" class="loginBtn" [disabled]="loginupDataDetails.invalid">LOGIN</button>
+    </form>
+  </div>

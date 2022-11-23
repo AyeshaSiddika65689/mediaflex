@@ -1,0 +1,36 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+.home-content {
+  display: flex;
+}
+.home-content img {
+  height: 450px;
+  box-shadow: 5px 5px 60px 5px;
+}
+.content {
+  margin-top: 10rem;
+  margin-inline: 20px;
+}
+.content h1 {
+  font-size: 40px;
+  font-weight: 500;
+}
+.content p {
+  width: 450px;
+  font-weight: 600;
+}
+.home2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+}
+.home2 img{
+    box-shadow: 5px 5px 60px 5px;
+}

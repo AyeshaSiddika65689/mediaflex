@@ -1,0 +1,22 @@
+<div class="sign-main">
+    <form class="col-md-4" #signupDataDetails="ngForm">
+      <h2>Register</h2>
+      <div class="mb-3">
+        <input type="text" name="name" [(ngModel)]="signupInfo.name" #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" placeholder="Fullname" required="required" />
+        <small [class.d-none]="name.valid || name.untouched">*Enter Valid Data</small>
+      </div>
+      <div class="mb-3">
+        <input type="number" name="number" [(ngModel)]="signupInfo.number" #number="ngModel" [class.is-invalid]="number.invalid && number.touched" class="form-control" placeholder="Date of birth" required="required" />
+        <small [class.d-none]="number.valid || number.untouched">*Enter valid Data</small>
+      </div>
+      <div class="mb-3">
+        <input type="email" name="email" #email="ngModel" [(ngModel)]="signupInfo.email" [class.is-invalid]="email.invalid && email.touched" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" placeholder="Email" required="required" />
+        <small [class.d-none]="email.valid || email.untouched">*Enter valid Data</small>
+    </div>
+      <div class="mb-3">
+        <input type="password" name="passowrd" [(ngModel)]="signupInfo.password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched"  pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" class="form-control" placeholder="Password" required="required" />
+        <small [class.d-none]="password.valid || password.untouched">*Use strong  password </small>
+      </div>
+      <button type="submit" class="signBtn" [disabled]="signupDataDetails.invalid">Register</button>
+    </form>
+  </div>

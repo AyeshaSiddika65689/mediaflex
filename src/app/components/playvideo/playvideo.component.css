@@ -1,0 +1,32 @@
+.player{
+   display: flex;
+   justify-content: center;
+}
+.videoPlayer{
+    width: 50rem;
+    height: 30rem;
+}
+video{
+    overflow: hidden;
+}
+button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color:white;
+    margin-right: 10px;
+    background-color:rgb(199, 156, 17) ;
+}
+.player-content {
+    margin-top: 1.5rem;
+}
+.player-content  h1{
+  font-size: 35px;
+}
+.player-content p{
+    width: 48rem;
+}
+.Buttons{
+    margin-bottom: 3rem;
+}
+

@@ -1,0 +1,12 @@
+.signbtn{
+   background-color: rgb(233, 177, 22);
+   border-radius: 5px;
+   margin-right: 7px;
+}
+.logbtn{
+    background-color: rgb(3, 3, 3);
+    border-radius: 5px;
+}
+a{
+    color: white;
+}
