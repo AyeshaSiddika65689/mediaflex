@@ -1,0 +1,59 @@
+<div class="dashboard">
+  <div class="wrapper">
+    <h2>
+      <strong>Movies</strong>
+    </h2>
+
+    <div class="cards">
+      <figure class="card" (click)="VideoDetails(video)"  *ngFor="let video of videoData">
+        <img src="http://localhost:3000/{{video.video}}" alt="" />
+        <figcaption>{{video.title}}
+        <h6>{{video.desc}}</h6>
+        <p>{{video.author}}</p>
+        <p>{{video.category}}</p>
+        <p>Rating</p></figcaption>
+      </figure>
+      <figure class="card">
+        <img src="../../../assets/image/movie.jpg" />
+        <figcaption>title
+        <h6>commonly used to demonstrate the visual form of a document or a typeface without</h6>
+        <p>Rating</p></figcaption>
+      </figure>
+      <figure class="card">
+        <img src="../../../assets/image/movie.jpg" />
+        <figcaption>title
+        <h6>commonly used to demonstrate the visual form of a document or a typeface without</h6>
+        <p>Rating</p></figcaption>
+      </figure>
+      <figure class="card">
+        <img src="../../../assets/image/movie.jpg" />
+        <figcaption>title
+        <h6>commonly used to demonstrate the visual form of a document or a typeface without</h6>
+        <p>Rating</p></figcaption>
+      </figure>
+      <figure class="card">
+        <img src="../../../assets/image/movie.jpg" />
+        <figcaption>title
+        <h6>commonly used to demonstrate the visual form of a document or a typeface without</h6>
+        <p>Rating</p></figcaption>
+      </figure>
+      <figure class="card">
+        <img src="../../../assets/image/movie.jpg" />
+        <figcaption>title
+        <h6>commonly used to demonstrate the visual form of a document or a typeface without</h6>
+        <p>Rating</p></figcaption>
+      </figure>
+      <figure class="card">
+        <img src="../../../assets/image/movie.jpg" />
+        <figcaption>title
+        <h6>commonly used to demonstrate the visual form of a document or a typeface without</h6>
+        <p>Rating</p></figcaption>
+      </figure>
+
+      
+    </div>
+
+    <h2><strong>What's new?</strong></h2>
+  </div>
+</div>
+

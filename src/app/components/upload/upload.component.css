@@ -1,10 +1,15 @@
 .upload{
-    margin-top: 3rem;    
+    margin-top: 2rem;   
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center; 
 }
 .upload label{
-    color: #fff;
+    color: rgb(156, 148, 148);
+    font-size: 16px;
+    font-weight: 700;
 }
 button{
     color: #fff;
-    background-color: rgb(32, 16, 121);
+    background-color: rgb(233, 177, 22);
 }

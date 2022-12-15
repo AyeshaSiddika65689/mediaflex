@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { VideouploadService } from 'src/app/services/videoupload.service';
+import { HttpClient } from '@angular/common/http';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-upload',
@@ -6,27 +8,79 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
-  url: string | ArrayBuffer | null | undefined;
-  format: string | undefined;
-  onSelectFile(event:any) {
-    const file = event.target.files && event.target.files[0];
-    if (file) {
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      if(file.type.indexOf('image')> -1){
-        this.format = 'image';
-      } else if(file.type.indexOf('video')> -1){
-        this.format = 'video';
-      }
-      reader.onload = (event) => {
-        this.url = (<FileReader>event.target).result;
-      }
-    }
+  displayVideo!: boolean;
+  displayVideoArray!: Array<any>;
+  @ViewChild('singleInput', { static: false })
+  singleInput!: ElementRef;
+  thumbnailInput!: ElementRef;
+  subtitleInput!: ElementRef;
+
+  videos: any;
+  title:string = ""
+  desc:string = ""
+  category:string = ""
+  author:string = ""
+  subtitle: any;
+  thumbnail:any
+
+  p: any;
+  constructor(private Videoupload: VideouploadService, private http: HttpClient) {
+    this.displayVideo = false;
+    this.displayVideoArray = [];
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  onSelectedTitle(title:any){
+    this.title = title
+  }
+  onSelectedDesc(desc:any){
+    this.desc = desc
+  }
+  onSelectedCatagory(category:any){
+    this.category = category
+  }
+  onSelectedAuthor(author:any){
+    this.author = author
   }
 
+  onSelectThumbnail(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log('files:', file);
+      this.thumbnail = file;
+    }}
+    onSelectSubtitle(event: any) {
+      if (event.target.files.length > 0) {
+        const file = event.target.files[0];
+        console.log('files:', file);
+        this.subtitle = file;
+      }}
+
+  onSelectVideo(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log('files:', file);
+      this.videos = file;
+    }}
+
+  uploadVideo() {
+    // construct fomdata
+    const formdata = new FormData();
+   { formdata.set("title", this.title),
+    formdata.set("desc", this.desc),
+    formdata.set("category", this.category),
+    formdata.set("author", this.author),
+    formdata.append('video', this.thumbnail),
+    formdata.append('video', this.subtitle),
+    formdata.append('video', this.videos)}
+    console.log('formdata in uploadVideo', this.videos);
+    this.Videoupload.uploadVideo(formdata).subscribe((res) => {
+      alert("Video uploaded successfully")
+      console.log('res in uploadVideo',res.filename);
+      this.singleInput.nativeElement.value = '';
+      this.displayVideo = true;
+      this.displayVideoArray.push(res.filename);
+    });
+  }
+
+  ngOnInit(): void {}
 }

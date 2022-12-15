@@ -17,6 +17,15 @@ import { VgCoreModule } from '@videogular/ngx-videogular/core';
 import { VgControlsModule } from '@videogular/ngx-videogular/controls';
 import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
 import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
+import { SettingsComponent } from './components/settings/settings.component';
+import { RatingsComponent } from './components/ratings/ratings.component';
+import { MatButtonModule } from "@angular/material/button";
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeDashboardComponent } from './components/home-dashboard/home-dashboard.component';
+import { MatIconModule } from "@angular/material/icon";
+import{ MatDialogModule} from "@angular/material/dialog";
+import { MatTabsModule } from "@angular/material/tabs";
+import { HttpClientModule } from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +36,11 @@ import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
     HeaderComponent,
     FooterComponent,
     UploadComponent,
-    PlayvideoComponent
+    PlayvideoComponent,
+    SettingsComponent,
+    RatingsComponent,
+    NavbarComponent,
+    HomeDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +50,13 @@ import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
     VgCoreModule ,
     VgControlsModule ,
     VgOverlayPlayModule,
-    VgBufferingModule
+    VgBufferingModule,
+    MatButtonModule,
+    MatIconModule ,
+    MatDialogModule,
+    MatTabsModule ,
+    HttpClientModule
+
 
   ],
   providers: [],

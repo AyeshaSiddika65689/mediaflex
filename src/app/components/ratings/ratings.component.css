@@ -1,0 +1,12 @@
+.rating {
+    padding: 100px 60px;
+  }
+  button {
+    background-color: rgb(233, 177, 22);
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  .star i {
+    color: rgb(241, 145, 0);
+  }

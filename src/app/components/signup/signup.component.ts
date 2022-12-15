@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-signup',
@@ -10,13 +13,23 @@ export class SignupComponent implements OnInit {
     name:'',
     email: '',
     password:'',
-    number:'',
-    role:'user'
+    phone:'',
+    
   }
 
-  constructor() { }
+  constructor(private _auth: AuthService, private router: Router, private dialogePopUp:MatDialog) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  //signup function
+  signUp() {
+    console.log(this.signupInfo);
+    this._auth.userSignUp(this.signupInfo).subscribe((res) => {
+      console.log(res);
+      alert('Account Registered Successfully');
+      this.router.navigate(['login']);
+    }, err=>{
+      alert("Email already registered")
+      console.log(err);
+    });
   }
-
 }
