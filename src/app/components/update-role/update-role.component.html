@@ -1,0 +1,24 @@
+<form class="update-frm">
+    <h1>ROLE UPDATE</h1>
+    <div class="mb-3">
+        <label>Name</label>
+       <input type="text" name="name" [(ngModel)]="userDetails.name"  disabled="disabled" class="form-control" >
+    </div>
+    <div class="mb-3">
+        <label>Email</label>
+       <input type="email" name="email" [(ngModel)]="userDetails.email" disabled="disabled" class="form-control" >
+    </div>
+    <div class="mb-3">
+        <label>Phone Number</label>
+       <input type="text" name="phone" [(ngModel)]="userDetails.phone" disabled="disabled" class="form-control" >
+    </div>
+    <div class="mb-3">
+        <label>Role</label>
+        <select class="form-select" name="role" [(ngModel)]="userDetails.role">
+            <option selected>Role</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+        </select>
+    </div>
+    <button class="update" mat-button (click)=" updateUser()">UPDATE</button>
+</form>

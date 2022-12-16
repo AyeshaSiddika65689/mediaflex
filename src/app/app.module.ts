@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -25,7 +24,13 @@ import { HomeDashboardComponent } from './components/home-dashboard/home-dashboa
 import { MatIconModule } from "@angular/material/icon";
 import{ MatDialogModule} from "@angular/material/dialog";
 import { MatTabsModule } from "@angular/material/tabs";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { UpdateRoleComponent } from './components/update-role/update-role.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './auth.guard';
+import { VideouploadService } from './services/videoupload.service';
+import { CategoryComponent } from './components/category/category.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +45,9 @@ import { HttpClientModule } from "@angular/common/http";
     SettingsComponent,
     RatingsComponent,
     NavbarComponent,
-    HomeDashboardComponent
+    HomeDashboardComponent,
+    UpdateRoleComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,11 @@ import { HttpClientModule } from "@angular/common/http";
 
 
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard, VideouploadService,
+    {provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,23 @@
+<div class="head">
+    <h1>Change Role Privilages</h1>
+  </div>
+  <div class="Settings-details">
+    <form action="">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Role</th>
+          <th>Role Updates</th>
+        </tr>
+        <tr *ngFor="let user of userDatas">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.role }}</td>
+          <td><button mat-button class="update" (click)=" updateUser(user)" >Change role</button></td>
+        </tr>
+      </table>
+    </form>
+  </div>
