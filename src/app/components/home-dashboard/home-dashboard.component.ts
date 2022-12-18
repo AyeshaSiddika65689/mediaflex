@@ -26,7 +26,7 @@ export class HomeDashboardComponent implements OnInit {
     // get video Details
     VideoDetails(videoDatas: any) {
       localStorage.setItem('editVideoId', videoDatas._id.toString());
-      this.router.navigate(['dashboard/videoContent']);
+      this.router.navigate(['dashboard/playvideo']);
       // this.dialoge.open(VideoContentComponent)
     }
 

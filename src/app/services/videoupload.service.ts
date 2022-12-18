@@ -8,6 +8,7 @@ export class VideouploadService {
 
   constructor(private http: HttpClient) { }
 
+
    // Upload videos and details
    uploadVideo(body: any) {
     console.log('inside videoservices file of videoUpload', body);
@@ -22,6 +23,12 @@ export class VideouploadService {
 
   // get learner details to update by ID 
   getVideo(id: any) {
-    return this.http.get("http://localhost:3000/getSingleVideo" + id);
+    return this.http.get("http://localhost:3000/videoDetails/" + id);
+  }
+
+  // Delete a video
+  deleteVideo(id:any){
+    console.log("Delete video",id)
+    return this.http.delete<any>("http://localhost:3000/deletevideo/" + id)
   }
 }

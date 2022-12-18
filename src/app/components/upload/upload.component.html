@@ -5,7 +5,7 @@
         <input type="text" #title (change)="onSelectedTitle(title.value)"  class="form-control" placeholder="Enter the title">
       </div>
       <div class="mb-3">
-        <input type="text" #desc (change)="onSelectedDesc(desc.value)" class="form-control" placeholder="Enter description">
+        <textarea rows="4" cols="50" #desc (change)="onSelectedDesc(desc.value)"   class="form-control"  placeholder="Enter description"></textarea>
       </div>
       <div class="mb-3"> 
         <label class="form-label">Upload Thumbnail</label>
